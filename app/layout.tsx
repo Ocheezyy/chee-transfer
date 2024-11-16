@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import AuthProvider from "@/components/providers/authprovider";
+// import AuthProvider from "@/components/providers/authprovider";
 import Header from "@/app/header";
 import { ReactNode } from "react";
 import "./globals.css";
@@ -31,10 +31,10 @@ export default function RootLayout({
       <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-950 text-gray-100`}
       >
-      <AuthProvider>
+      {/*<AuthProvider>*/}
         <Header />
         {children}
-      </AuthProvider>
+      {/*</AuthProvider>*/}
       </body>
       </html>
   );

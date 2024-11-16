@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { ReactNode } from "react";
 import "../globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
+import {ClerkProvider, RedirectToSignIn, SignedOut} from "@clerk/nextjs";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { dark } from "@clerk/themes";
@@ -23,11 +23,7 @@ export const metadata: Metadata = {
     description: "Home",
 };
 
-export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
-    children: ReactNode;
-}>) {
+export default function RootLayout({children}: Readonly<{ children: ReactNode }>) {
     return (
         <ClerkProvider
             appearance={{
@@ -38,6 +34,9 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-950 text-gray-100`}
             >
+            <SignedOut>
+                <RedirectToSignIn />
+            </SignedOut>
             <SidebarProvider>
                 <AppSidebar />
                 <SidebarTrigger />

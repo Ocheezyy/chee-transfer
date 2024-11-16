@@ -5,6 +5,7 @@ import "../globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
+import { dark } from "@clerk/themes";
 
 const geistSans = localFont({
     src: "../fonts/GeistVF.woff",
@@ -28,7 +29,11 @@ export default function RootLayout({
     children: ReactNode;
 }>) {
     return (
-        <ClerkProvider>
+        <ClerkProvider
+            appearance={{
+                baseTheme: dark,
+            }}
+        >
             <html lang="en" className="dark">
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-950 text-gray-100`}

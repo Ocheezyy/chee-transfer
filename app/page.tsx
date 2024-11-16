@@ -1,101 +1,96 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Repeat, Shield, ArrowRight, Laptop } from 'lucide-react'
+import { ReactElement } from "react"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      <div className="min-h-screen flex flex-col bg-gray-950 text-gray-100">
+        <main className="flex-grow pt-16">
+          <section className="py-20 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-gray-950 opacity-50"></div>
+            <div className="container mx-auto px-4 relative">
+              <div className="max-w-3xl mx-auto text-center">
+                <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500 animate-pulse">
+                  Shift Your Music Universe
+                </h1>
+                <p className="text-xl mb-8 text-gray-300">
+                  Seamlessly transfer your playlists between Spotify, Apple Music, and more. Your music, your way.
+                </p>
+                <Button size="lg" className="bg-pink-600 text-white hover:bg-pink-700 transition-colors duration-300 shadow-lg shadow-pink-500/50">
+                  Start Your Music Journey <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+            </div>
+          </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+          <section className="py-20 bg-gray-900">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500">
+                Why CheeTransfer?
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <FeatureCard
+                    icon={<Laptop className="h-12 w-12 text-pink-500" />}
+                    title="On Device"
+                    description="Transfer your entire music library using only your device, no servers"
+                />
+                <FeatureCard
+                    icon={<Repeat className="h-12 w-12 text-pink-500" />}
+                    title="Completely Free"
+                    description="Due to the transfer being run on your device, there's no cost to us, meaning no cost to you."
+                />
+                <FeatureCard
+                    icon={<Shield className="h-12 w-12 text-pink-500" />}
+                    title="Fort Knox Security"
+                    description="Bank-level encryption keeps your data safe. Your music stays yours, always."
+                />
+              </div>
+            </div>
+          </section>
+
+          <section className="py-20 bg-gray-950">
+            <div className="container mx-auto px-4 text-center">
+              <h2 className="text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-500">
+                Ready to Revolutionize Your Music Experience?
+              </h2>
+              <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
+                Join thousands of music lovers who have already shifted their tunes. Your perfect playlist is just a click away.
+              </p>
+              <Button size="lg" className="bg-pink-600 text-white hover:bg-pink-700 transition-colors duration-300 shadow-lg shadow-pink-500/50">
+                Get Started Now <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
+          </section>
+        </main>
+
+        <footer className="bg-gray-950 py-8 border-t border-gray-800">
+          <div className="container mx-auto px-4 text-center text-gray-400">
+            <p>&copy; 2024 CheeTransfer. All rights reserved. Keep the music flowing.</p>
+          </div>
+        </footer>
+      </div>
+  )
+}
+
+type FeatureCardProps = {
+  icon: ReactElement;
+  title: string;
+  description: string;
+}
+
+function FeatureCard({ icon, title, description }: FeatureCardProps) {
+  return (
+      <Card className="bg-gray-900 border-pink-500/50 hover:border-pink-500 transition-colors duration-300 group">
+        <CardHeader>
+          <CardTitle className="flex items-center space-x-2 text-pink-500 group-hover:text-pink-400 transition-colors duration-300">
+            {icon}
+            <span>{title}</span>
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <CardDescription className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">{description}</CardDescription>
+        </CardContent>
+      </Card>
+  )
 }

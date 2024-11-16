@@ -3,6 +3,7 @@
 import { Music } from 'lucide-react';
 import { ReactElement } from "react";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
+import Link from "next/link";
 
 export default function Header(): ReactElement {
 
@@ -15,9 +16,9 @@ export default function Header(): ReactElement {
                 </div>
                 <nav>
                     <ul className="flex space-x-6">
-                        <li><a href="#" className="text-gray-300 hover:text-pink-500 transition-colors">Home</a></li>
-                        <li><a href="/how-it-works" className="text-gray-300 hover:text-pink-500 transition-colors">How it Works</a></li>
-                        <li><a href="#" className="text-gray-300 hover:text-pink-500 transition-colors">Contact</a></li>
+                        <li><Link href="/" className="text-gray-300 hover:text-pink-500 transition-colors">Home</Link></li>
+                        <li><Link href="/how-it-works" className="text-gray-300 hover:text-pink-500 transition-colors">How it Works</Link></li>
+                        <li><Link href="#" className="text-gray-300 hover:text-pink-500 transition-colors">Contact</Link></li>
                         <li className="pl-3">
                             <SignedOut>
                                 <SignInButton />

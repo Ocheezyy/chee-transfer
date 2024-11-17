@@ -1,3 +1,11 @@
 {
+  "plugins": [
+    "@stylistic/ts"
+  ],
+  "rules": {
+    "@stylistic/ts/semi": ["error", "always"],
+    "@stylistic/ts/object-curly-spacing": ["error", "always"],
+    "@stylistic/ts/quotes": ["error", "double"]
+  },
   "extends": ["next/core-web-vitals", "next/typescript"]
 }

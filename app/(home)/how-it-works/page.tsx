@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight } from 'lucide-react';
 import { stepCards, StepCardProps } from "./stepcards";
-import { transferSteps, TransferStepProps } from "@/app/how-it-works/transfersteps";
+import { transferSteps, TransferStepProps } from "./transfersteps";
 
 
 export default function HowItWorksPage() {
@@ -24,7 +24,7 @@ export default function HowItWorksPage() {
                 </div>
             </section>
 
-            <section className="py-20 bg-gray-800">
+            <section className="py-20 bg-gray-900">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {stepCards.map((card, count) => {

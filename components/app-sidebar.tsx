@@ -1,4 +1,4 @@
-import {Calendar, Home, Inbox, Music, Search, Settings} from "lucide-react";
+import { Calendar, Home, Inbox, Music, Search, Settings } from "lucide-react";
 import { SignInButton, SignedOut, SignedIn, UserButton } from "@clerk/nextjs";
 
 import {
@@ -12,7 +12,7 @@ import {
     SidebarMenuItem,
     SidebarFooter,
     SidebarHeader
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 
 const items = [
@@ -41,7 +41,7 @@ const items = [
         url: "#",
         icon: Settings,
     },
-]
+];
 
 export function AppSidebar() {
     return (
@@ -89,5 +89,5 @@ export function AppSidebar() {
                 </SidebarMenu>
             </SidebarFooter>
         </Sidebar>
-    )
+    );
 }

@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { Music } from 'lucide-react';
+import { Music } from "lucide-react";
 import { ReactElement } from "react";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function Header(): ReactElement {

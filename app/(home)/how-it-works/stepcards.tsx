@@ -5,7 +5,7 @@ export type StepCardProps = {
     icon: ReactElement;
     title: string;
     description: string;
-}
+};
 
 
 export const stepCards: StepCardProps[] = [
@@ -24,4 +24,4 @@ export const stepCards: StepCardProps[] = [
         title: "Progress Tracking",
         description: "We only store your transfer progress on our servers, allowing you to pause and resume transfers at any time."
     }
-]
+];

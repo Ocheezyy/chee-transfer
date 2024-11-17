@@ -2,7 +2,7 @@ export type TransferStepProps = {
     number: number;
     title: string;
     description: string;
-}
+};
 
 export const transferSteps: TransferStepProps[] = [
     {
@@ -30,4 +30,4 @@ export const transferSteps: TransferStepProps[] = [
         title: "Enjoy Your Music",
         description: "Once the transfer is complete, your music will be available on your destination platform. It's that simple!"
     }
-]
+];

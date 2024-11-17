@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Repeat, Shield, ArrowRight, Laptop } from 'lucide-react'
-import { ReactElement } from "react"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Repeat, Shield, ArrowRight, Laptop } from "lucide-react";
+import { ReactElement } from "react";
 import { SignedIn, SignedOut, } from "@clerk/nextjs";
 import Link from "next/link";
 
@@ -90,7 +90,7 @@ export default function HomePage() {
           </div>
         </footer>
       </div>
-  )
+  );
 }
 
 const featureCards = [
@@ -109,13 +109,13 @@ const featureCards = [
     title: "Fort Knox Security",
     description: "Bank-level encryption keeps your data safe. Your music stays yours, always."
   }
-]
+];
 
 type FeatureCardProps = {
   icon: ReactElement;
   title: string;
   description: string;
-}
+};
 
 function FeatureCard({ icon, title, description }: FeatureCardProps) {
   return (
@@ -130,5 +130,5 @@ function FeatureCard({ icon, title, description }: FeatureCardProps) {
           <CardDescription className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">{description}</CardDescription>
         </CardContent>
       </Card>
-  )
+  );
 }

@@ -4,7 +4,7 @@ import Header from "@/app/(home)/header";
 import { ReactNode } from "react";
 import "../globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from '@clerk/themes'
+import { dark } from "@clerk/themes";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",

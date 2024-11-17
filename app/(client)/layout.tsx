@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { ReactNode } from "react";
 import "../globals.css";
-import {ClerkProvider, RedirectToSignIn, SignedOut} from "@clerk/nextjs";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/app-sidebar"
+import { ClerkProvider, RedirectToSignIn, SignedOut } from "@clerk/nextjs";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 import { dark } from "@clerk/themes";
 
 const geistSans = localFont({
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: "Home",
 };
 
-export default function RootLayout({children}: Readonly<{ children: ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (
         <ClerkProvider
             appearance={{

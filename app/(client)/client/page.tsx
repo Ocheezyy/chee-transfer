@@ -3,7 +3,7 @@ import { CardHeader, CardDescription, CardTitle, Card, CardContent } from "@/com
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import {ReactElement} from "react";
+import { ReactElement } from "react";
 
 
 export default function AppHome() {
@@ -49,7 +49,7 @@ export default function AppHome() {
                 </Card>
             </SignedIn>
         </main>
-    )
+    );
 }
 
 type AccountCardProps = {
@@ -57,7 +57,7 @@ type AccountCardProps = {
     icon: ReactElement;
     description: string;
     buttonText: string;
-}
+};
 
 function AccountCard({ title, icon, description, buttonText }: AccountCardProps) {
     return (
@@ -76,5 +76,5 @@ function AccountCard({ title, icon, description, buttonText }: AccountCardProps)
                 </Button>
             </CardContent>
         </Card>
-    )
+    );
 }

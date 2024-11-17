@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
 import { stepCards, StepCardProps } from "./stepcards";
 import { transferSteps, TransferStepProps } from "./transfersteps";
 
@@ -33,7 +33,7 @@ export default function HowItWorksPage() {
                                 icon={card.icon}
                                 title={card.title}
                                 description={card.description}
-                            />
+                            />;
 
                         })}
                     </div>
@@ -52,7 +52,7 @@ export default function HowItWorksPage() {
                                     key={`transfer-step-${count}`}
                                     number={count+1}
                                     title={step.title}
-                                    description={step.description} />
+                                    description={step.description} />;
                             })}
                         </ol>
                     </div>
@@ -93,7 +93,7 @@ function StepCard({ icon, title, description }: StepCardProps) {
                 <p className="text-gray-300">{description}</p>
             </CardContent>
         </Card>
-    )
+    );
 }
 
 function TransferStep({ number, title, description }: TransferStepProps) {
@@ -105,5 +105,5 @@ function TransferStep({ number, title, description }: TransferStepProps) {
             <h3 className="flex items-center mb-1 text-lg font-semibold text-white">{title}</h3>
             <p className="mb-4 text-base font-normal text-gray-400">{description}</p>
         </li>
-    )
+    );
 }

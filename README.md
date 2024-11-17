@@ -55,7 +55,7 @@ To get a local copy of the project up and running, follow these steps.
    ```
 
 3. Setup environment variables:
-    create a `.env.local` and put in the required types based on `.env.d.ts`
+    create a `.env.local` and put in the required values based on `.env.example`
     
 
 ### Running the project

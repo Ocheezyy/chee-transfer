@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Music, Search, Settings } from "lucide-react";
+import { Calendar, Home, Music, Search, Settings, Link } from "lucide-react";
 import { SignInButton, SignedOut, SignedIn, UserButton } from "@clerk/nextjs";
 
 import {
@@ -22,9 +22,9 @@ const items = [
         icon: Home,
     },
     {
-        title: "Inbox",
-        url: "#",
-        icon: Inbox,
+        title: "Connected Accounts",
+        url: "/client/accounts",
+        icon: Link,
     },
     {
         title: "Calendar",

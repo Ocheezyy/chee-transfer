@@ -1,0 +1,1 @@
+type AccountProvider = "oauth_spotify" | "oauth_apple";

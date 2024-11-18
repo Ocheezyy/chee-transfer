@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { AccountCard } from "./account-card";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -12,12 +12,14 @@ const ClientAccountCards = async () => {
     const userObj = await getUserObject();
     const spotifyAccount = await checkExternalAccount(userObj, "oauth_spotify");
     const appleAccount = await checkExternalAccount(userObj, "oauth_apple");
+    const spotifyAccountExists = spotifyAccount && spotifyAccount.externalId !== "";
+    const appleAccountExists = appleAccount && appleAccount.externalId !== "";
 
-    const spotifyButtonText = !spotifyAccount ? "Connect Spotify" : "Remove";
-    const spotifyDescription = !spotifyAccount ? "Connect your Spotify account to transfer playlists and liked songs." : spotifyAccount.emailAddress;
+    const spotifyButtonText = !spotifyAccountExists ? "Connect Spotify" : "Remove";
+    const spotifyDescription = !spotifyAccountExists ? "Connect your Spotify account to transfer playlists and liked songs." : spotifyAccount.emailAddress;
 
-    const appleButtonText = !appleAccount ? "Connect Apple" : "Remove";
-    const appleDescription = !appleAccount ? "Link your Apple Music account to sync your library and playlists." : appleAccount.emailAddress;
+    const appleButtonText = !appleAccountExists ? "Connect Apple" : "Remove";
+    const appleDescription = !appleAccountExists ? "Link your Apple Music account to sync your library and playlists." : appleAccount.emailAddress;
     
     return (
         <main className="flex-1 p-8">
@@ -67,36 +69,5 @@ const ClientAccountCards = async () => {
         </main>
     );
 };
-
-type AccountCardProps = {
-    title: string;
-    icon: ReactElement;
-    description: string;
-    buttonText: string;
-    linked: boolean;
-};
-
-function AccountCard({ title, icon, description, buttonText, linked }: AccountCardProps) {
-    const buttonClasses = linked ?
-        "w-full bg-pink-600 hover:bg-pink-700 text-white" : "w-full bg-red-600 hover:bg-red-700 text-white";
-
-    return (
-        <Card className="flex flex-col h-full bg-gray-700 border-gray-600">
-            <CardHeader>
-                <div className="flex items-center space-x-2">
-                    {icon}
-                    <CardTitle className="text-gray-100">{title}</CardTitle>
-                </div>
-            </CardHeader>
-            <CardContent className="flex-grow">
-                <CardDescription className="mb-4 text-gray-300">{description}</CardDescription>
-                <Button className={buttonClasses}>
-                    {buttonText}
-                    <ArrowRight className="ml-2 h-4 w-4"/>
-                </Button>
-            </CardContent>
-        </Card>
-    );
-}
 
 export default ClientAccountCards;

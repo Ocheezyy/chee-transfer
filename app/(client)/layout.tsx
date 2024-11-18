@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import "../globals.css";
 import { ClerkProvider, RedirectToSignIn, SignedOut } from "@clerk/nextjs";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
+import { AppSidebar } from "./app-sidebar";
 import { dark } from "@clerk/themes";
 
 const geistSans = localFont({

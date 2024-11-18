@@ -1,14 +1,10 @@
 import { User } from "@clerk/nextjs/server";
-import { getUserObject } from "@/app/client-functions/get-user-object";
 
-type AccountProvider = "spotify" | "apple";
+type AccountProvider = "oauth_spotify" | "oauth_apple";
 
-
-
-export const checkExternalAccount = async (userObj: User, provider: AccountProvider) => {
-    const user = await getUserObject();
-    if (user === null) return null;
-    const spotifyAcc = userObj.externalAccounts.find(acc => acc.provider === provider);
-    if (!spotifyAcc) return false;
-    return true;
+export const checkExternalAccount = async (userObj: User | null, provider: AccountProvider) => {
+    if (userObj === null) return null;
+    const externalAccount = userObj.externalAccounts.find(acc => acc.provider === provider);
+    if (!externalAccount) return false;
+    return externalAccount;
 };

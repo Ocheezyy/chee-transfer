@@ -9,7 +9,8 @@ export default async function AppHome() {
     const spotifyAccount = await checkExternalAccount(userObj, "oauth_spotify");
     const appleAccount = await checkExternalAccount(userObj, "oauth_apple");
 
-    if (spotifyAccount === null && appleAccount === null) {
+
+    if ((!spotifyAccount || spotifyAccount.externalId === "") && (!appleAccount || appleAccount.externalId === "")) {
         return <NoConnections />;
     }
 

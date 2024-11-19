@@ -14,3 +14,5 @@ const getOauthToken = async (provider: AccountProvider): Promise<string | null> 
     if (!accessToken) return null;
     return accessToken;
 };
+
+export default getOauthToken;

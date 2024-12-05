@@ -1,4 +1,4 @@
-export default async function getPlaylists(accessToken: string | null): Promise<SpotifyPlaylist[] | null> {
+export default async function getPlaylists(accessToken: string | null): Promise<ApplePlaylist[] | null> {
     if (accessToken === null) return null;
     const getPlaylistsRes = await fetch("https://api.spotify.com/v1/me/playlists", {
         method: "GET",

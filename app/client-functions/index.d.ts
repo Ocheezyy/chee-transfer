@@ -1,6 +1,13 @@
 type AccountProvider = "oauth_spotify" | "oauth_apple";
 
-type Playlist = {
+interface Playlists {
+    spotify: SpotifyPlaylist[];
+    apple: ApplePlaylist[];
+}
+
+type Platform = "spotify" | "apple" | string;
+
+type SpotifyPlaylist = {
     collaborative: boolean;
     description: string;
     external_urls: { spotify: string; }
@@ -30,3 +37,19 @@ type Playlist = {
     type: "playlist";
     uri: string;
 };
+
+type ApplePlaylist = {
+    id: string;
+};
+
+interface PlaylistsProps {
+    initialPlaylists: Playlists | null;
+}
+
+interface SpotifyPlaylistCardProps {
+    playlist: SpotifyPlaylist;
+}
+
+interface ApplePlaylistCardProps {
+    playlist: ApplePlaylist;
+}

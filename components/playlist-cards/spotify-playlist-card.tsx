@@ -4,6 +4,8 @@ import { Music } from "lucide-react";
 import SpotifyIcon from "@/components/svgs/SpotifyIcon";
 
 export default function SpotifyPlaylistCard({ playlist }: SpotifyPlaylistCardProps) {
+    if (!playlist) return null;
+
     return (
         <Card key={playlist.id}
               className="overflow-hidden bg-gray-800 border-gray-700 hover:bg-gray-700 transition-colors">

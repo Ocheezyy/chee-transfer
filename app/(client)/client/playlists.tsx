@@ -30,7 +30,6 @@ export default function Playlists({ initialPlaylists }: PlaylistsProps) {
     
     const hasPlaylists = platformPlaylists && platformPlaylists.length > 0;
 
-
     return (
         <main className="flex-1 p-8">
             <section className="py-10 px-4">

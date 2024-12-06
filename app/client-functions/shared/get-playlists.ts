@@ -7,9 +7,9 @@ export default async function getPlaylists(userObj: User | null): Promise<Playli
     if (userObj === null) return null;
 
     const spotifyAccessToken = await getOauthToken("oauth_spotify");
-    const appleAccessToken = await getOauthToken("oauth_apple");
+    // const appleAccessToken = await getOauthToken("oauth_apple");
     const spotifyPlaylists = await GetSpotifyPlaylists(spotifyAccessToken);
-    const applePlaylists = await GetApplePlaylists(appleAccessToken);
+    const applePlaylists = await GetApplePlaylists();//appleAccessToken);
 
     return {
         spotify: spotifyPlaylists || [],

@@ -10,7 +10,7 @@ const getOauthToken = async (provider: AccountProvider): Promise<string | null> 
         provider
     );
 
-    const accessToken = clerkResponse.data[0]?.token;
+    const accessToken = clerkResponse?.data?.[0]?.token;
     if (!accessToken) return null;
     return accessToken;
 };

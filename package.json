@@ -38,6 +38,7 @@
   "devDependencies": {
     "@stylistic/eslint-plugin-ts": "^2.10.1",
     "@types/md5": "^2.3.5",
+    "@types/musickit-js": "^1.0.10",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

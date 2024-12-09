@@ -6,6 +6,8 @@ import { ClerkProvider, RedirectToSignIn, SignedOut } from "@clerk/nextjs";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "./app-sidebar";
 import { dark } from "@clerk/themes";
+import Script from "next/script";
+import AppleProvider from "@/components/apple-provider";
 
 const geistSans = localFont({
     src: "../fonts/GeistVF.woff",
@@ -21,6 +23,11 @@ const geistMono = localFont({
 export const metadata: Metadata = {
     title: "CheeTransfer App",
     description: "Home",
+    other: {
+        "apple-music-developer-token": process.env.APPLE_DEV_TOKEN!,
+        "apple-music-app-name": "Playlist Porter",
+        "apple-music-app-build": "1978.4.1"
+    }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
@@ -31,17 +38,25 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             }}
         >
             <html lang="en" className="dark">
+            {/*<Head>*/}
+            {/*    <meta name="apple-music-developer-token" content={process.env.APPLE_DEV_TOKEN} />*/}
+            {/*    <meta name="apple-music-app-name" content="Playlist Porter"/>*/}
+            {/*    <meta name="apple-music-app-build" content="1978.4.1"/>*/}
+            {/*</Head>*/}
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-950 text-gray-100`}
             >
-            <SignedOut>
-                <RedirectToSignIn />
-            </SignedOut>
-            <SidebarProvider>
-                <AppSidebar />
-                <SidebarTrigger />
-                {children}
-            </SidebarProvider>
+                <SignedOut>
+                    <RedirectToSignIn />
+                </SignedOut>
+                <AppleProvider>
+                    <SidebarProvider>
+                        <AppSidebar />
+                        <SidebarTrigger />
+                        {children}
+                    </SidebarProvider>
+                </AppleProvider>
+                <Script src="https://js-cdn.music.apple.com/musickit/v3/musickit.js" async></Script>
             </body>
             </html>
         </ClerkProvider>

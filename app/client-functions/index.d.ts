@@ -1,3 +1,5 @@
+import MusicKitInstance = MusicKit.MusicKitInstance;
+
 type AccountProvider = "oauth_spotify" | "oauth_apple";
 
 interface Playlists {
@@ -52,4 +54,21 @@ interface SpotifyPlaylistCardProps {
 
 interface ApplePlaylistCardProps {
     playlist: ApplePlaylist;
+}
+
+interface AppleMusicHeader {
+    Authorization: string;
+    Accept: string;
+    "Content-Type": string;
+    "Music-User-Token": string;
+}
+
+
+interface AppleContextProps {
+    musicKitLoaded: boolean;
+    appleLogin: () => Promise<void>;
+    isLoggedIn: () => boolean;
+    getMusicInstance: () => MusicKitInstance | undefined;
+    getAppleMusicHeader: () => AppleMusicHeader;
+    getPlaylists: () => Promise<any>;
 }

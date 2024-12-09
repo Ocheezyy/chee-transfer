@@ -2,13 +2,51 @@
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Disc3, Search } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import SpotifyPlaylistCard from "@/components/playlist-cards/spotify-playlist-card";
 import ApplePlaylistCard from "@/components/playlist-cards/apple-playlist-card";
+import { configure as MusicKitConfigure, isLoggedIn as appleIsLoggedIn, logIn as appleLogIn, getPlaylists as getApplePlaylists } from "@/app/client-functions/apple/music-kit-auth";
 
 
 export default function Playlists({ initialPlaylists }: PlaylistsProps) {
+    const [playlistData, setPlaylistData] = useState<any>(initialPlaylists);
+    // const [appleAvailable, setAppleAvailable] = useState<boolean>(false);
+    // const [musicKit, setMusicKit] = useState<MusicKit.MusicKitInstance>();
+
+    // useEffect(() => {
+    //     console.log("useeffect ran");
+    //     document.addEventListener("musickitloaded", async function() {
+    //         console.log("musickitloaded");
+    //         await MusicKitConfigure(window.MusicKit);
+    //         if (!appleIsLoggedIn()) {
+    //             await appleLogIn();
+    //         }
+    //         const applePlaylists = await getApplePlaylists();
+    //         console.log(applePlaylists);
+    //         setPlaylistData({ apple: applePlaylists, ...playlistData });
+    //     //     const music = await window.MusicKit.getInstance();
+    //     //     console.log(music);
+    //     //     setAppleAvailable(true);
+    //     //     setMusicKit(music);
+    //     //     if (!music.isAuthorized) {
+    //     //         await music.authorize();
+    //     //     }
+    //     //
+    //     //     console.log(music?.api.music("v1/me/library/playlists"));
+    //     });
+    // }, []);
+    //
+    //
+    // useEffect(() => {
+    //     console.log("playlistData", playlistData);
+    // }, [playlistData]);
+
+
+
+
+
+
     // Bring back for refreshing of playlists
     // const [playlists, setPlaylists] = useState<Playlists>(initialPlaylists || { spotify: [], apple: [] });
     const [selectedPlatform, setSelectedPlatform] = useState<Platform>("spotify");
@@ -75,8 +113,10 @@ export default function Playlists({ initialPlaylists }: PlaylistsProps) {
             <section className="py-8 px-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
                     {hasPlaylists && platformPlaylists?.map((playlist, idx) => (
-                        selectedPlatform === "spotify" ? <SpotifyPlaylistCard key={`${idx}-spot-playlist`} playlist={playlist as SpotifyPlaylist} /> :
-                            selectedPlatform === "apple" ? <ApplePlaylistCard key={`${idx}-apple-playlist`} playlist={playlist as ApplePlaylist } /> :
+                        selectedPlatform === "spotify" ?
+                            <SpotifyPlaylistCard key={`${idx}-spot-playlist`} playlist={playlist as SpotifyPlaylist}/> :
+                            selectedPlatform === "apple" ? <ApplePlaylistCard key={`${idx}-apple-playlist`}
+                                                                              playlist={playlist as ApplePlaylist}/> :
                                 null
                     ))}
                 </div>
